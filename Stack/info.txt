@@ -1,0 +1,23 @@
+Stack
+- Methods in a stack follow a Last In First Out (LIFO) process
+- Access to any other element is unnecessary (No need to access them)
+
+Variations of stack
+- Array Stack :: Implemented using an array
+- Link Stack :: Implemented using nodes
+
+Main Methods
+- Initialisation :: Create the stack
+- Push :: Add item on top of stack
+- Pop :: Remove item on top of stack
+
+Use Case
+- Reversing a sequence of elements
+    1) Push all elements of the sequence in to the stack
+    2) Pop all and retrieve the sequence in a reversed order
+- Undo editing
+- Parsing
+- Runtime memory management
+    - Stack memory
+- Recursion
+
