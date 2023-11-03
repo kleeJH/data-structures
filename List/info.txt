@@ -1,0 +1,17 @@
+List
+- A data structure that is used to store elements
+
+Variations of List
+-
+
+Main Methods
+- Initialisation :: Create the list
+- Get :: Get an element from a given index
+- Length :: Number of elements in List
+- Insert/Set :: Add an element in a given index
+- Append :: Add an element at the back
+- Remove :: Remove an element from a given index
+and more...
+
+Use Case
+- Storing items

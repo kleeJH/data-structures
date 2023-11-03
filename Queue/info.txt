@@ -1,0 +1,19 @@
+Queue
+- Methods in a queue follow a First In First Out (FIFO) process
+- Access to any other element is unnecessary (No need to access them)
+
+Variations of Queue
+- Linear Queue :: Implemented using an array;
+- Circular Queue :: Implemented using an array; 
+- Link Queue :: Implemented using nodes
+
+
+Main Methods
+- Initialisation :: Create the queue
+- Append :: Add an element at the back of the queue
+- Serve :: Take an element from the front of the queue
+
+Use Case
+- Scheduling and buffering
+    - Printer spooler
+    - Calling numerous async functions

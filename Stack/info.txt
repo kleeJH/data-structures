@@ -2,7 +2,7 @@ Stack
 - Methods in a stack follow a Last In First Out (LIFO) process
 - Access to any other element is unnecessary (No need to access them)
 
-Variations of stack
+Variations of Stack
 - Array Stack :: Implemented using an array
 - Link Stack :: Implemented using nodes
 

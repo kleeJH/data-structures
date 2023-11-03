@@ -95,9 +95,9 @@ if __name__ == '__main__':
     # ArrayStack
     test_list = DataStructure.ARRAY
     suite = unittest.TestLoader().loadTestsFromTestCase(TestStack)
-    unittest.TextTestRunner().run(suite)
+    unittest.TextTestRunner(verbosity=2).run(suite)
 
     # LinkStack
     test_list = DataStructure.LINK
     suite = unittest.TestLoader().loadTestsFromTestCase(TestStack)
-    unittest.TextTestRunner().run(suite)
+    unittest.TextTestRunner(verbosity=2).run(suite)
