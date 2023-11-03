@@ -150,7 +150,7 @@ class LinkListIterator[T]:
         """ Initialises self.current to the node given as input. """
         self.current = node
 
-    def __iter__(self) -> LinkListIterator:
+    def __iter__(self) -> 'LinkListIterator': # Forward reference type hint, the return in quotes. Ref: https://peps.python.org/pep-0484/#forward-references
         """ Returns itself, as required to be iterable. """
         return self
 

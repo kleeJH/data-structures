@@ -96,8 +96,8 @@ class TestList(unittest.TestCase):
 if __name__ == '__main__':
     test_list = DataStructure.ARRAY
     suite = unittest.TestLoader().loadTestsFromTestCase(TestList)
-    unittest.TextTestRunner().run(suite)
+    unittest.TextTestRunner(verbosity=2).run(suite)
 
     test_list = DataStructure.LINK
     suite = unittest.TestLoader().loadTestsFromTestCase(TestList)
-    unittest.TextTestRunner().run(suite)
+    unittest.TextTestRunner(verbosity=2).run(suite)
