@@ -131,6 +131,48 @@ class ArrayList[T](List[T]):
         self.array[index] = item
         self.length += 1
 
+class SortedArrayList[T](ArrayList[T]):
+    """ 
+    Implementation of a sorted list with arrays.
+
+    Attributes:
+         length (int): number of elements in the list (inherited)\n
+         array (FixedSizeArray[T]): array storing the elements of the list  (inherited)
+
+    Note: This class is to take advantage on the binary search time complexity.
+    """
+
+    def __init__(self, max_capacity: int) -> None:
+        super().__init__(max_capacity)
+
+    def __setitem__(self, index: int, value: T) -> None:
+        """ Sets the value of the element at position index and sorts the list. """
+        super().__setitem__(index, value)
+        self.array.sort()
+
+    def get_index(self, item: T) -> int:
+        """ Returns the position of the first occurrence of item. """
+        self.binary_search(item)
+    
+    def insert(self, index: int, item: T) -> None:
+        """ Moves element from index to the right by one position, insert the element in index and sort the list. """
+        super().insert(index, item)
+        self.array.sort()
+
+    def binary_search(self, item: T) -> int:
+        """ Does binary search on a sorted list. """
+        low = 0
+        high = len(self) - 1
+        while low <= high:
+            mid = (low + high) // 2
+            if self.array[mid] > item:
+                high = mid - 1
+            elif self.array[mid] == item:
+                return mid
+            else:
+                low = mid + 1
+        raise ValueError("Item not in list")
+
 
 class Node[T]:
     def __init__(self, item: T = None) -> None:

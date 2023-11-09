@@ -28,3 +28,6 @@ class FixedSizeArray[T]:
     def __setitem__(self, index: int, value: T) -> None:
         """ Sets the object in position index to value. """
         self.array[index] = value
+
+    def sort(self) -> None:
+        self.array = sorted(self.array, key=lambda x: float('inf') if x is None else x)
