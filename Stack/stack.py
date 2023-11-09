@@ -45,8 +45,8 @@ class ArrayStack[T](Stack[T]):
     """ Implementation of a stack with arrays.
     
     Attributes:
-         length (int): number of elements in the stack (inherited)\n
-         array (FixedSizeArray[T]): array storing the elements of the queue
+        - length (int): number of elements in the stack (inherited)
+        - array (FixedSizeArray[T]): array storing the elements of the queue
 
     NOTE: Stack requires a capacity of ONE
     """
@@ -106,7 +106,7 @@ class LinkStack[T](Stack[T]):
     """ Implementation of a stack with linked nodes.
 
     Attributes:
-         length (int): number of elements in the stack (inherited)
+        - length (int): number of elements in the stack (inherited)
     """
 
     def __init__(self, _=None) -> None:

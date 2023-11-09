@@ -43,10 +43,10 @@ class LinearQueue[T](Queue[T]):
     Linear implementation of a queue with arrays.
 
     Attributes:
-         length (int): number of elements in the queue (inherited)\n
-         front (int): index of the element at the front of the queue\n
-         rear (int): index of the first empty space at the back of the queue\n
-         array (FixedSizeArray[T]): array storing the elements of the queue
+        - length (int): number of elements in the queue (inherited)
+        - front (int): index of the element at the front of the queue
+        - rear (int): index of the first empty space at the back of the queue
+        - array (FixedSizeArray[T]): array storing the elements of the queue
     """
     MIN_CAPACITY = 1
 
@@ -103,10 +103,10 @@ class CircularQueue[T](Queue[T]):
     """ Circular implementation of a queue with arrays.
 
     Attributes:
-         length (int): number of elements in the queue (inherited)\n
-         front (int): index of the element at the front of the queue\n
-         rear (int): index of the first empty space at the back of the queue\n
-         array (FixedSizeArray[T]): array storing the elements of the queue
+        - length (int): number of elements in the queue (inherited)
+        - front (int): index of the element at the front of the queue
+        - rear (int): index of the first empty space at the back of the queue
+        - array (FixedSizeArray[T]): array storing the elements of the queue
     """
     MIN_CAPACITY = 1
 
@@ -170,9 +170,9 @@ class LinkQueue[T](Queue[T]):
     Linked implementation of a queue with nodes.
 
     Attributes:
-         length (int): number of elements in the linked queue (inherited)\n
-         front (int): reference to the front node (None represents an empty queue)\n
-         rear (int): reference to the rear node (None represents an empty queue)
+        - length (int): number of elements in the linked queue (inherited)
+        - front (int): reference to the front node (None represents an empty queue)
+        - rear (int): reference to the rear node (None represents an empty queue)
     """
 
     def __init__(self, _=None) -> None:

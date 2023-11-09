@@ -3,8 +3,8 @@ Queue
 - Access to any other element is unnecessary (No need to access them)
 
 Variations of Queue
-- Linear Queue :: Implemented using an array;
-- Circular Queue :: Implemented using an array; 
+- Linear Queue :: Implemented using an array
+- Circular Queue :: Implemented using an array
 - Link Queue :: Implemented using nodes
 
 

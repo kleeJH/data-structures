@@ -76,8 +76,8 @@ class ArrayList[T](List[T]):
     Implementation of a generic list with arrays.
 
     Attributes:
-         length (int): number of elements in the list (inherited)\n
-         array (FixedSizeArray[T]): array storing the elements of the list
+        - length (int): number of elements in the list (inherited)
+        - array (FixedSizeArray[T]): array storing the elements of the list
     """
     MIN_CAPACITY = 1
 
@@ -136,8 +136,8 @@ class SortedArrayList[T](ArrayList[T]):
     Implementation of a sorted list with arrays.
 
     Attributes:
-         length (int): number of elements in the list (inherited)\n
-         array (FixedSizeArray[T]): array storing the elements of the list  (inherited)
+        - length (int): number of elements in the list (inherited)
+        - array (FixedSizeArray[T]): array storing the elements of the list (inherited)
 
     Note: This class is to take advantage on the binary search time complexity.
     """
@@ -185,7 +185,7 @@ class LinkListIterator[T]:
     Implementation of a the methods to make LinkList iterable
 
     Attributes:
-         current (Node[T]): the node whose item will be returned next
+        - current (Node[T]): the node whose item will be returned next
     """
 
     def __init__(self, node: Node[T]) -> None:
@@ -211,8 +211,8 @@ class LinkList[T](List[T]):
     Implementation of a generic list with linked nodes.
 
     Attributes:
-         length (int): number of elements in the list (inherited)
-         head (Node[T]): node at the head of the list
+        - length (int): number of elements in the list (inherited)
+        - head (Node[T]): node at the head of the list
     """
 
     def __init__(self) -> None:
@@ -225,19 +225,19 @@ class LinkList[T](List[T]):
 
     def __setitem__(self, index: int, item: T) -> None:
         """ Sets the value of the element at position index to be item. """
-        node_at_index = self.__get_node_at_index(index)
+        node_at_index = self.get_node_at_index(index)
         node_at_index.item = item
 
     def __getitem__(self, index: int) -> T:
         """ Returns the value of the element at position index. """
-        node_at_index = self.__get_node_at_index(index)
+        node_at_index = self.get_node_at_index(index)
         return node_at_index.item
 
     def is_full(self):
         """ Returns true if the list is full. """
         return False
 
-    def __get_node_at_index(self, index: int) -> Node[T]:
+    def get_node_at_index(self, index: int) -> Node[T]:
         """ Returns the node in the list at position index. """
         if 0 <= index < len(self):
             current = self.head
@@ -254,7 +254,7 @@ class LinkList[T](List[T]):
             new_node.link = self.head
             self.head = new_node
         else:
-            previous_node = self.__get_node_at_index(index-1)
+            previous_node = self.get_node_at_index(index-1)
             new_node.link = previous_node.link
             previous_node.link = new_node
         self.length += 1
@@ -276,7 +276,7 @@ class LinkList[T](List[T]):
     def delete_at_index(self, index: int) -> T:
         """ Delete an element at the index position and returns the item. """
         try:
-            previous_node = self.__get_node_at_index(index-1)
+            previous_node = self.get_node_at_index(index-1)
         except ValueError as e:
             if self.is_empty():
                 raise ValueError("List is empty")
@@ -310,3 +310,55 @@ class LinkList[T](List[T]):
         """ Clears the link list. """
         List.clear(self)
         self.head = None
+
+class SortedLinkList[T](LinkList[T]):
+    """ 
+    Implementation of a generic list with linked nodes.
+
+    Attributes:
+         - length (int): number of elements in the list (inherited)
+         - head (Node[T]): node at the head of the list (inherited)
+    """
+
+    def __init__(self) -> None:
+        super().__init__()
+
+    def __setitem__(self, index: int, item: T) -> None:
+        raise AttributeError(f"{self.__class__.__name__} has no attribute '__setitem__'")
+
+    # Don't use this set of arguments inherited from parent
+    # def insert(self, index: int, item: T) -> None:
+    #     raise TypeError(f"{self.__class__.__name__} has no arugument `(index: int, item: T)` for the attribute '__setitem__'")
+
+    def insert(self, item: T) -> None:
+        """ Insert an item at a sorted index position. """
+        new_node = Node(item)
+        current = self.head
+        previous = None
+        
+        if self.is_empty(): # No node in list
+            new_node.link = self.head
+            self.head = new_node
+        else:
+            index = 0
+            current = self.head
+
+            while index <= self.length: # Only when inserted, you can leave
+                # print(f"item:{item}, index:{index}, length:{self.length+1}")
+                if index == self.length: # Insert at the end
+                    current = super().get_node_at_index(index-1)
+                    current.link = new_node
+                elif item <= current.item:
+                    if index == 0: # Insert before head
+                        new_node.link = self.head
+                        self.head = new_node
+                    else: # Insert in between nodes
+                        new_node.link = current
+                        previous = super().get_node_at_index(index-1)
+                        previous.link = new_node
+                    break
+                else:
+                    current = current.link
+
+                index += 1
+        self.length += 1

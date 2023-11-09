@@ -2,7 +2,10 @@ List
 - A data structure that is used to store elements
 
 Variations of List
--
+- Array List :: Implemented using an array
+- Sorted Array List :: Implemented using an array that always sorts an item after insertion
+- Link List :: Implemented using nodes
+- Sorted Link List :: Implemented using nodes that always sorts an item after insertion
 
 Main Methods
 - Initialisation :: Create the list
@@ -11,6 +14,7 @@ Main Methods
 - Insert/Set :: Add an element in a given index
 - Append :: Add an element at the back
 - Remove :: Remove an element from a given index
+- Sort :: Use standard Python Timsort or binary search for sorted array list
 and more...
 
 Use Case
