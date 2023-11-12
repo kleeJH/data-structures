@@ -1,0 +1,35 @@
+Hash Table
+- Constant time operations
+- Items to be stored in the hash table, each item must have a unique key that maps to a position in the hash table
+- Basic Properties of Hash Table:
+    - Type dependent :: depends on the type of the item's key
+    - Desirable :: Fast hash function, minimum collisions
+    - Hash Function :: Returns a value that is bounded within the confines of the array
+
+Conflict Resolution
+- What happens if the hash function returns the same index position for different keys?
+- Solutions?
+    - Separete chaining 
+        - Each array position contains a linked list of items
+        - Upon collision, either update element with same key or add new element in the linked list
+    - Open addressing (Example: Linear Probing or Quadratic Probing)
+        - Each array position only contains a single item
+        - Upon collision, either update element with same key or add new element in to an empty space
+        - Improving open addressing
+            - Calculate load factor :: total number of items / TABLESIZE
+            - As more items are added into a fixed sized array, clustering of items occurs
+            - The tendency for clustering occurs when the load factor is > 0.5
+            - Best way is to keep load factor under 2/3 (better under 1/2)
+            - If load factor exceeds the threshold, double the size of the array and rehash every single item from the original hash table
+
+
+Main Methods
+- Initialisation :: Create the hash table
+- Hash Function :: Maps a unique key to an array position
+- Add :: Add an item into the hash table
+- Search :: Search an item in the hash table
+- Delete :: Delete an item from the hash table
+
+Use Case
+- Any situation that requires constant time access, retrieval or deletion of items in an array.
+
