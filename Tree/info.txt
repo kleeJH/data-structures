@@ -1,0 +1,24 @@
+Tree (the subset of a graph)
+- A data structure that is used to represent hierarchies, family tree and more
+- Concepts:
+    – Parent, child, root, leaf, and inner nodes
+    – Subtree
+    – Levels and maximum depth
+    – Paths
+    – Binary trees
+    – Balanced/unbalanced binary trees
+    – Perfect binary trees
+
+Graph (the superset of a tree)
+- A data structure that is used to represent networks, relationships, hierarchies and more (including trees)
+
+Variations of Tree
+- Binary (Search) Tree
+
+Main Methods
+- Initialisation :: Create the tree/graph
+- Traversal :: Ways to traverse the tree/graph (Inorder, Preorder and Postorder) (Recursive, Iterative)
+- Insert
+- Search
+
+
