@@ -10,7 +10,7 @@ class Heap[T](ABC):
 
     def __init__(self, max_size: int = MIN_CAPACITY) -> None:
         self.length = 0
-        # Add an additional size in the array 1 for readability
+        # Add +1 in the array for readability
         self.the_array = FixedSizeArray(max(self.MIN_CAPACITY, max_size) + 1)
 
     def __len__(self) -> int:
@@ -40,7 +40,7 @@ class Heap[T](ABC):
             self.rise(self.length)
 
         return has_space_left
-    
+
     @abstractmethod
     def rise2(self, k: int, element: T) -> int:
         """ Raise element at index k to its correct position. """
@@ -84,20 +84,19 @@ class Heap[T](ABC):
             for i in range(len(an_array)):
                 self.the_array[i+1] = an_array[i]
 
-            # heapify every parent
+            # Heapify every parent
             for i in range(max_size//2, 0, -1):
                 self.sink(i)
 
 
 class MaxHeap[T](Heap[T]):
-    
+
     def rise(self, k: int) -> None:
         """ Raise element at index k to its correct position. """
         while k > 1 and self.the_array[k] > self.the_array[k // 2]:
             self.swap(k, k // 2)
             k = k // 2
 
-    
     def rise2(self, k: int, element: T) -> int:
         """ Raise element at index k to its correct position. """
         while k > 1 and element > self.the_array[k // 2]:
@@ -105,7 +104,6 @@ class MaxHeap[T](Heap[T]):
             k = k//2
         return k
 
-    
     def priotized_child(self, k: int) -> int:
         """ Returns the index of the largest child of k. """
         if 2 * k == self.length or self.the_array[2 * k] > self.the_array[2 * k + 1]:
@@ -121,6 +119,7 @@ class MaxHeap[T](Heap[T]):
                 break
             self.swap(child, k)
             k = child
+
 
 class MinHeap[T](Heap[T]):
 
