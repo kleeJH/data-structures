@@ -22,8 +22,8 @@ class Node[K, I]:
 
 class TraversalType(Enum):
     PRE_ORDER = 0,
-    IN_ORDER = 2,
-    POST_ORDER = 1
+    IN_ORDER = 1,
+    POST_ORDER = 2
 
 class BSTTraversalIterator[K, I]:
     def __init__(self, root: Node[K, I], traversal_type: TraversalType = TraversalType.IN_ORDER) -> None:
@@ -160,3 +160,21 @@ class BinarySearchTree[K, I](BinaryTree[K]):
             else:
                 self.__get_leaves_aux(current.left, a_list)
                 self.__get_leaves_aux(current.right, a_list)
+
+    def get_max(self) -> tuple((K, I)):
+        """ Get the maximum element in the BST. """
+        if self.root is None:
+            raise ValueError("Tree is empty")
+        elif self.root.right is None:  # root has the max
+            temp = (self.root.key, self.root.item)
+            self.root = self.root.left  # delete root
+            return temp
+        else:
+            return self.get_max_aux(self.root.right, self.root)
+
+    def get_max_aux(self, current, parent) -> tuple((K, I)):
+        if current.right is None:  # base case: at max
+            parent.right = current.left
+            return (current.key, current.item)
+        else:
+            return self.get_max_aux(current.right, current)

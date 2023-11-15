@@ -1,0 +1,19 @@
+Set
+- A data structure that stores a collection of distinct elements
+
+Varations of Set
+- Array Based Set
+
+Main Methods
+- Initialisation :: Create the Set
+- Add :: Add an item into the Set
+- Remove :: Remove an item from the Set
+- Union :: Returns a union of the orignal set with another Set
+- Intersection :: Returns a intersection of the orignal set with another Set
+- Difference :: Returns a difference of the orignal set with another Set
+
+Use Case
+- Storing distinct items
+
+
+

@@ -1,0 +1,21 @@
+Heap
+- Characteristics
+    - Heap-ordered :: Each child is smaller than (or equal to) its parent
+    - Completeness :: All levels but the last are full; the last is filled from the left
+
+Variations of Heap
+- Array-Based
+    - MinHeap
+    - MaxHeap
+
+Main Methods
+- Initialisation :: Create the Heap
+- Add :: Add a new element in to the Heap
+- Rise :: Raise an element to the right position in the Heap (Used in conjunction with Add method)
+- GetMax :: Get the most priotized item in the Heap (for a MaxHeap)
+- Sink :: Sink an element to the right position in the Heap (Used in conjunction with GetMax method)
+
+Use Case
+- Priority Queue
+- Heap-Sort
+    - Keep retrieving the priotized items (e.g. Keep returning highest int using get_max())
